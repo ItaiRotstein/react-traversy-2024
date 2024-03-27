@@ -1,6 +1,10 @@
+import JobListings from "../cmps/JobListings"
+
 const JobsPage = () => {
   return (
-    <div>JobsPage</div>
+    <>
+      <JobListings isHomePage={false} />
+    </>
   )
 }
 export default JobsPage
