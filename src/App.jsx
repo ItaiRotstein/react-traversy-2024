@@ -15,7 +15,7 @@ const jobLoader = async ({ params }) => {
 }
 
 const App = () => {
-
+  //add job
   const addJob = async (newJob) => {
     const res = await fetch('api/jobs', {
       method: 'POST',
@@ -26,7 +26,7 @@ const App = () => {
     });
     return;
   };
-
+  //edit job
   const editJob = async (job) => {
     const res = await fetch(`/api/jobs/${job.id}`, {
       method: 'PUT',
@@ -37,7 +37,7 @@ const App = () => {
     });
     return;
   };
-  
+  //delete job
   const deleteJob = async (id) => {
     const res = await fetch(`/api/jobs/${id}`, {
       method: 'DELETE',
@@ -50,9 +50,9 @@ const App = () => {
       <Route path='/' element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path='/jobs' element={<JobsPage />} />
-        <Route path='/job/:id' element={<JobPage deleteJob={deleteJob}/>} loader={jobLoader} />
+        <Route path='/job/:id' element={<JobPage deleteJob={deleteJob} />} loader={jobLoader} />
         <Route path='/add-job' element={<AddJobPage addJobSubmit={addJob} />} />
-        <Route path='/job/edit/:id' element={<EditJobPage updateJobSubmit={editJob} />} loader={jobLoader}/>
+        <Route path='/job/edit/:id' element={<EditJobPage updateJobSubmit={editJob} />} loader={jobLoader} />
         <Route path='/*' element={<NotFoundPage />} />
       </Route>
     )
